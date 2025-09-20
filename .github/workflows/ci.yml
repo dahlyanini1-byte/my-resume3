@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build image
-        run: docker build -t dahlyanini1/resume3 .
+        run: docker build -t ${{secrets.REGISTRY_USER}}
       - name: Push image 
         run: |
-            docker login -u dahlyanini1 -p ${{secrets.REGISTRY_PASS}}
-            docker push dahlyanini1/resume3
+            docker login -u ${{secrets.REGISTRY_USER}} -p ${{secrets.REGISTRY_PASS}}
+            docker push ${{secrets.REGISTRY_USER}}/resume3
              
